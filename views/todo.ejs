@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <title>Todo List APP test with jenkins CI CD </title>
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+        <style>
+            a {
+                text-decoration: none;
+                color: black;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <h3>Jenkins CI/CD project on Google Cloud Virtual Machine with GITHUB WebHooks </h3>
+        <ul>
+            <!-- Display item to edit or delete from list -->
+            <% todolist.forEach(function(todo, index) { %>
+            <li>
+                <a href="/todo/delete/<%= index %>">
+                    <i class='fa fa-trash' style='color: red'></i></a>
+                <a href="/todo/<%= index %>">
+                    <i class='fa fa-edit' style='color: blue'></i></a>
+                <%- todo %>
+            </li>
+            <% }); %>
+        </ul>
+
+        <form action="/todo/add/" method="post">
+            <!-- Add item to list -->
+            <p>
+                <label for="newtodo">Add items into note diary</label>
+                <input type="text" name="newtodo" id="newtodo" autofocus />
+                <input type="submit" value="Add" />
+            </p>
+        </form>
+    </body>
+
+</html>
